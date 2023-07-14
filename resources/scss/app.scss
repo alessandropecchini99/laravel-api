@@ -1,0 +1,50 @@
+/*resources/scss/app.scss*/
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+@import "~bootstrap/scss/bootstrap";
+
+// My Style
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// body {
+//     background-color: rgb(163, 163, 163);
+// }
+
+// HEADER
+.myNav {
+    width: 160px;
+}
+
+// MAIN
+main {
+    min-height: 80vh;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// FOOTER
+.mySocial {
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+
+    .social {
+        font-size: 2em;
+        color: black;
+        transition: 0.2s ease;
+
+        &:hover {
+            color: rgb(97, 97, 97);
+            transition: 0.2s ease;
+        }
+    }
+}
