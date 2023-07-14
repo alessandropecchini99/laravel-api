@@ -38,7 +38,7 @@
         </div>
 
 
-        <div class="flex items-center gap-4">
+        <div>
             <button>Save</button>
 
             @if (session('status') === 'password-updated')

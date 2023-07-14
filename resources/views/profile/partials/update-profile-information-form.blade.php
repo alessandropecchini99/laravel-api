@@ -13,13 +13,13 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('admin.profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('admin.profile.update') }}">
         @csrf
         @method('patch')
 
         <div>
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" value="{{ old('name', $user->name) }}" required />
+            <input id="name" name="name" type="text" value="{{ old('name', $user->name) }}" required>
             @error('name')
                 {{ $message }}
             @enderror
@@ -27,23 +27,23 @@
 
         <div>
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" required />
+            <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" required>
             @error('email')
                 {{ $message }}
             @enderror
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
-                    <p class="text-sm mt-2 text-gray-800">
+                    <p>
                         {{ __('Your email address is unverified.') }}
 
-                        <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <button form="send-verification">
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>
 
                     @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600">
+                        <p>
                             {{ __('A new verification link has been sent to your email address.') }}
                         </p>
                     @endif
@@ -51,7 +51,7 @@
             @endif
         </div>
 
-        <div class="flex items-center gap-4">
+        <div>
             <button>Save</button>
 
             @if (session('status') === 'profile-updated')
