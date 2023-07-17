@@ -20,3 +20,4 @@ use App\Http\Controllers\Api\PostController;
 // });
 
 Route::get('posts', [PostController::class, 'index'])->name('api.posts.index'); // nomesito/api/posts
+Route::get('posts/{post}', [PostController::class, 'show'])->name('api.posts.show');
