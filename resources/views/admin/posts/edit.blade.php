@@ -44,7 +44,6 @@
                     name="url_image" 
                     value="{{ old('url_image', $post->url_image) }}"
                 >
-
                 @error('url_image')
                     <div class="invalid-feedback">
                         {{ $message }}
