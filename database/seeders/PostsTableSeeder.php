@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Post;
 use App\Models\Type;
 use App\Models\Technology;
+use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -31,7 +32,7 @@ class PostsTableSeeder extends Seeder
 
             $post = Post::create([
                 'type_id'       => $faker->randomElement($types)->id,
-                'title'         => $title,
+                'title'         => Str::ucfirst($title),
                 'slug'          => $slug,
                 'url_image'     => 'https://picsum.photos/id/' . rand(1, 270) . '/500/400',
                 'content'       => $faker->paragraph(rand(2, 20), true),

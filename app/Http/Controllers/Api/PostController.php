@@ -10,15 +10,32 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('type', 'technologies')->paginate(4);
+        $post = Post::with('type', 'technologies')->paginate(4);
 
-        return response()->json($posts);
+        return response()->json([
+            'success' => true,
+            'results' => $post,
+        ]);
     }
 
 
     public function show($slug)
     {
-        $post = Post::where('slug', $slug)->firstOrFail();
-        return response()->json($post);
+        $post = Post::where('slug', $slug)->first();
+        return response()->json([
+            'success' => $post ? true : false,
+            'results' => $post,
+        ]);
+    }
+
+
+    public function random()
+    {
+        $post = Post::inRandomOrder()->limit(9)->get();
+
+        return response()->json([
+            'success' => true,
+            'results' => $post,
+        ]);
     }
 }
