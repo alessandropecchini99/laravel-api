@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\TypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ use App\Http\Controllers\Api\PostController;
 Route::get('posts', [PostController::class, 'index'])->name('api.posts.index'); // nomesito/api/posts
 Route::get('posts/random', [PostController::class, 'random'])->name('api.posts.random');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('api.posts.show');
+
+Route::get('types', [TypeController::class, 'index'])->name('api.types.show'); // nomesito/api/types

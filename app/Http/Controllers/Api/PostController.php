@@ -8,9 +8,13 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $post = Post::with('type', 'technologies')->paginate(4);
+        // ricerca
+        // gestisco parametro q
+        $searchString = $request->query('q', '');
+
+        $post = Post::with('type', 'technologies')->where('title', 'LIKE', "%$searchString%")->paginate(8);
 
         return response()->json([
             'success' => true,
