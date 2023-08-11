@@ -11,7 +11,18 @@
             {{-- name --}}
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input id="name" class="form-control" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <input 
+                    id="name" 
+                    class="form-control @error ('name') is-invalid @enderror" 
+                    type="text" name="name" 
+                    :value="old('name')" 
+                    required autofocus autocomplete="name" 
+                >
+                @error('name')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             {{-- email --}}
@@ -23,7 +34,12 @@
             {{-- password --}}
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" required autocomplete="current-password" name="password">
+                <input type="password" class="form-control @error ('password') is-invalid @enderror" id="password" required autocomplete="current-password" name="password">
+                @error('password')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             {{-- confirm password --}}
